@@ -26,7 +26,7 @@ function App() {
     setSec(0);
     setMins((preMins) => preMins + 1);
   }
-  
+
   useEffect(() => {
     const isAllHeld = dice.every((die) => die.isHeld);
     const firtValue = dice[0].value;
@@ -37,20 +37,18 @@ function App() {
     }
   }, [dice]);
 
-
   useEffect(() => {
     let timer = setInterval(() => {
-      if(!isGameStarted)
-      {
-        return
+      if (!isGameStarted) {
+        return;
       }
 
-      if(tenzies) {
-        return
+      if (tenzies) {
+        return;
       }
-      setSec(prevSec => prevSec + 1)
-    }, 1000)
-    return () => clearInterval(timer)
+      setSec((prevSec) => prevSec + 1);
+    }, 1000);
+    return () => clearInterval(timer);
   }, [tenzies, isGameStarted]);
 
   function generateNewDice() {
@@ -83,19 +81,21 @@ function App() {
       setDice(allNewDice());
       setTenzies(false);
       setIsGameStarted(false);
-      setTrackDice(0)
-      setHrs(0)
-      setMins(0)
-      setSec(0)
+      setTrackDice(0);
+      setHrs(0);
+      setMins(0);
+      setSec(0);
     }
   }
 
   function holdDice(id) {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
-      })
-    );
+    if (isGameStarted && !tenzies) {
+      setDice((prevDice) =>
+        prevDice.map((die) => {
+          return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+        })
+      );
+    }
   }
 
   const diceElement = dice.map((die) => (
@@ -108,11 +108,15 @@ function App() {
   ));
   return (
     <div className="app">
+      {tenzies && <Confetti />}
+
       <div className="timer-container">
         <h1>
           Time:
-           <span className="timer">
-            {String(hrs).padStart(2,'0')} : {String(mins).padStart(2,'0')} : {String(sec).padStart(2, '0')}
+          <span className="timer">
+            &nbsp;
+            {String(hrs).padStart(2, "0")} : {String(mins).padStart(2, "0")} :{" "}
+            {String(sec).padStart(2, "0")}
           </span>
         </h1>
       </div>
@@ -122,7 +126,6 @@ function App() {
         </h1>
       </div>
       <main>
-        {tenzies && <Confetti />}
         <h1 className="title">Tenzies</h1>
         <p className="instructions">
           Roll until all dice are the same. Click each die to freeze it at its
