@@ -13,6 +13,27 @@ body {
   height: 100vh;
 }
 
+.app {
+  display: grid;
+  grid-template: auto auto / repeat(2, 0.9.5fr);
+  /* align-items: center; */
+  gap: 2rem 3rem ;
+  
+}
+
+.count-container,.timer-container {
+  align-self: flex-end;
+  background-color: #fff;
+  /* margin: 2rem 0rem; */
+  border-radius: 0.5rem;
+  padding: 0 3rem;
+  text-align: center;
+}
+
+.count-container .counter, .timer-container .timer{
+  color: #f00;
+}
+
 main {
   background-color: #f5f5f5;
   width: 40rem;
@@ -22,6 +43,7 @@ main {
   align-items: center;
   justify-content: space-evenly;
   border-radius: 0.5rem;
+  grid-column: span 2;
 }
 
 .dice-container {
@@ -42,10 +64,136 @@ main {
   border-radius: 0.5rem;
   cursor: pointer;
   background-color: #fff;
+  position: relative;
 }
 
-.dice-num {
-  font-size: 2.5rem;
+.dice-dot {
+  font-size: 3rem;
+  height: 10px;
+  width: 10px;
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-block;
+  
+}
+
+/*! please reduce the repeated properties in the dice*/
+
+.dice-2, .dice-3, .dice-4, .dice-5, .dice-6 {
+  position: relative;
+}
+
+.dice-2 .dot-0 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.dice-2 .dot-1 {
+  position: absolute;
+  top: 60%;
+  right: 20%;
+}
+
+.dice-3 .dot-0 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.dice-3 .dot-1 {
+  position: absolute;
+}
+
+.dice-3 .dot-2 {
+  position: absolute;
+  top: 60%;
+  right: 20%;
+}
+
+.dice-4 .dot-0 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.dice-4 .dot-1{
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+
+.dice-4 .dot-2 {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
+
+.dice-4 .dot-3{
+  position: absolute;
+  top: 60%;
+  right: 20%;
+}
+.dice-5 .dot-0{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.dice-5 .dot-1{
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+
+.dice-5 .dot-2{
+  position: absolute;
+}
+
+.dice-5 .dot-3{
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
+
+.dice-5 .dot-4{
+  position: absolute;
+  top: 60%;
+  right: 20%;
+}
+
+.dice-6 .dot-0 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.dice-6 .dot-1 {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+
+.dice-6 .dot-2 {
+  position: absolute;
+  left: 20%;
+}
+
+.dice-6 .dot-3 {
+  position: absolute;
+  right: 20%;
+}
+
+.dice-6 .dot-4 {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
+
+.dice-6 .dot-5 {
+  position: absolute;
+  top: 60%;
+  right: 20%;
 }
 
 .title {
@@ -97,7 +245,7 @@ main {
     width: 30px;
   }
 
-  .dice-num {
+  .dice-dot {
     font-size: 1.5rem;
   }
 
