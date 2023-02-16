@@ -114,7 +114,7 @@ function App() {
           Time:
           <span className="timer">
             &nbsp;
-            {String(hrs).padStart(2, "0")} : {String(mins).padStart(2, "0")} :{" "}
+            {String(hrs).padStart(2, "0")} : {String(mins).padStart(2, "0")} :
             {String(sec).padStart(2, "0")}
           </span>
         </h1>
