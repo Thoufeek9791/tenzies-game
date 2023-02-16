@@ -109,7 +109,6 @@ function App() {
   return (
     <div className="app">
       {tenzies && <Confetti />}
-
       <div className="timer-container">
         <h1>
           Time:
