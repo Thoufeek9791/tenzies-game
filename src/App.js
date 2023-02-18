@@ -115,7 +115,7 @@ function App() {
           <span className="timer">
             &nbsp;
             {String(hrs).padStart(2, "0")} : {String(mins).padStart(2, "0")} :
-            {String(sec).padStart(2, "0")}
+             &nbsp;{String(sec).padStart(2, "0")}
           </span>
         </h1>
       </div>

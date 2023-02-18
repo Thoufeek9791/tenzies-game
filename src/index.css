@@ -77,8 +77,6 @@ main {
   display: inline-block;
 }
 
-
-
 .dice-2,
 .dice-3,
 .dice-4,
@@ -171,24 +169,50 @@ main {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
+/* **Css Meadia Query ***/
+
+/* breakpoint <=576px */
+
 @media (max-width: 576px) {
+  .app {
+    display: grid;
+    grid-template: auto auto / repeat(2, 1fr);
+    /* align-items: center; */
+    gap: 1rem 0.5rem;
+  }
+
+  .count-container,
+.timer-container {
+  text-align: center;
+  font-size: 0.5rem;
+  padding: 0 0.2rem;
+}
+
+.timer-container h1, .count-container h1{
+ 
+}
+
+
   main {
-    width: 22rem;
-    height: 22rem;
+    width: 20rem;
+    height: 20rem;
   }
 
   .dice-container {
-    row-gap: 2rem;
-    column-gap: 2rem;
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
   }
 
   .dice-face {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
   }
 
   .dice-dot {
-    font-size: 1.5rem;
+    /* font-size: 0; */
+    width: 5px;
+    height: 5px;
+    /* font-size: 1rem; */
   }
 
   .instructions {
