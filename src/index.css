@@ -15,7 +15,7 @@ body {
 
 .app {
   display: grid;
-  grid-template: auto auto / repeat(2, 0.9.5fr);
+  grid-template-columns: repeat(2,auto);
   /* align-items: center; */
   gap: 2rem 3rem;
 }
